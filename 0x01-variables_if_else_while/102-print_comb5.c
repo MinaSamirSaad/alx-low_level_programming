@@ -16,7 +16,7 @@ for (number2 = 0; number2 < 9; number2++)
 {
 for (number3 = 0; number3 < 10; number3++)
 {
-for (number4 = 1; number3 < 10; number3++)
+for (number4 = 1; number4 < 10; number4++)
 {
 putchar((number1 % 10) + '0');
 putchar((number2 % 10) + '0');
