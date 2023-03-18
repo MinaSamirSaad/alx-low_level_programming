@@ -23,10 +23,10 @@ putchar((number2 % 10) + '0');
 putchar(' ');
 putchar((number3 % 10) + '0');
 putchar((number4 % 10) + '0');
-putchar(',');
-putchar(' ');
 if (number1 == 9 && number2 == 8 && number3 == 9 && number4 == 9)
 break;
+putchar(',');
+putchar(' ');
 }
 }
 }
