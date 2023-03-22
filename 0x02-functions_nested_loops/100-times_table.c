@@ -18,7 +18,7 @@ for (j = 0 ; j <= n ; j++)
 {
 int r = i * j;
 if (r < 10)
-_putchar(r);
+_putchar(r + '0');
 else if (r >= 10 && r < 100)
 {
 _putchar((r / 10) + '0');
