@@ -1,5 +1,5 @@
 
-# holbertonschool-low_level_programming
+# alx-low_level_programming
 
 ## Description
 This project is about Debugging
