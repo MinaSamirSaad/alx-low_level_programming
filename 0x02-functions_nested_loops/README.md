@@ -1,4 +1,4 @@
-# holbertonschool-low_level_programming
+# alx-low_level_programming
 
 ## Description
 This project is about programming in C. Functions, nested loops
@@ -7,7 +7,7 @@ This project is about programming in C. Functions, nested loops
 
 | Files | Description |
 | ----- | ----------- |
-| [0-holberton.c](https://github.com/MinaSamirSaad/alx-low_level_programming/tree/master/0x02-functions_nested_loops/0-holberton.c) | Print "Holberton" using _putchar | 
+| [0-holberton.c](https://github.com/MinaSamirSaad/alx-low_level_programming/tree/master/0x02-functions_nested_loops/0-holberton.c) | Print "_putchar " using _putchar | 
 | [1-alphabet.c](https://github.com/MinaSamirSaad/alx-low_level_programming/tree/master/0x02-functions_nested_loops/1-alphabet.c) | Prints an alphabet |
 | [2-print_alphabet_x10.c](https://github.com/MinaSamirSaad/alx-low_level_programming/tree/master/0x02-functions_nested_loops/2-print_alphabet_x10.c) | Print the alphabet 10 times |
 | [3-islower.c](https://github.com/MinaSamirSaad/alx-low_level_programming/tree/master/0x02-functions_nested_loops/3-islower.c) | Cheking a lowercase |
