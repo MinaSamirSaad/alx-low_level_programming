@@ -25,10 +25,11 @@ char *_strncat(char *dest, char *src, int n)
 {
 int i = 0,
 lendest = _strlen(dest);
-while (i < n)
+for (i = 0; (i < n && src[i] != '\0'); i++)
 {
 dest[lendest + i] = src[i];
 i++;
 }
 return (dest);
 }
+
