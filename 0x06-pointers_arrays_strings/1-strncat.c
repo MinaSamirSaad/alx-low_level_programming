@@ -27,9 +27,8 @@ int i = 0,
 lendest = _strlen(dest);
 while (i < n)
 {
-dest[lendest += i] = src[i];
+dest[lendest + i] = src[i];
 i++;
 }
-dest[lendest] = '\0';
 return (dest);
 }
