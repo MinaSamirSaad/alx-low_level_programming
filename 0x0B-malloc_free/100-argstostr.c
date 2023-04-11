@@ -1,46 +1,46 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
+
 /**
-* *argstostr - concatenatea the arguments of the program
-*@ac: argument counter
-*@av: argument vector
-*Return: 0 (success)
-*/
+ * argstostr - Concatenates all arguments of the program into a string;
+ * arguments are separated by a new line in the string.
+ * @ac: The number of arguments passed to the program.
+ * @av: An array of pointers to the arguments.
+ *
+ * Return: If ac == 0, av == NULL, or the function fails - NULL.
+ * Otherwise - a pointer to the new string.
+ */
+
 char *argstostr(int ac, char **av)
 {
-	int i, j, c;
-	char *str, *beg;
+	char *str;
+	int arg, byte, i, size = ac;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	for (i = 0; i < ac; i++)
+	for (arg = 0; arg < ac; arg++)
 	{
-		for (j = 0; av[i][j] != '\0'; j++)
-		{
-			c++;
-		}
-		c++;
+		for (byte = 0; av[arg][byte]; byte++)
+			size++;
 	}
 
-	c++;
-	str = malloc(c * sizeof(char));
-
-	beg = str;
+	str = malloc(sizeof(char) * size + 1);
 
 	if (str == NULL)
 		return (NULL);
 
-	for (i = 0; i < ac; i++)
+	i = 0;
+
+	for (arg = 0; arg < ac; arg++)
 	{
-		for (j = 0; av[i][j] != '\0'; j++)
-		{
-			*str = av[i][j];
-			str++;
-		}
-		*str = '\n';
-		str++;
+		for (byte = 0; av[arg][byte]; byte++)
+			str[i++] = av[arg][byte];
+
+		str[i++] = '\n';
 	}
-	return (beg);
+
+	str[size] = '\0';
+
+	return (str);
 }
