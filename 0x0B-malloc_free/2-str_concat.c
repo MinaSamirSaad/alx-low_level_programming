@@ -24,14 +24,21 @@ return (i);
 */
 char *str_concat(char *s1, char *s2)
 {
-char *new_str;
+char *new_str, *empty;
 unsigned int size, i, s1_length, s2_length, j;
-if (s1 == NULL || s2 == NULL)
-return (NULL);
+
+	/**lets make empty strings*/
+	empty = "";
+
+	/**comparing the enter strings*/
+	if (s1 == NULL)
+		s1 = empty;
+	if (s2 == NULL)
+		s2 = empty;
 s1_length = str_length(s1);
 s2_length = str_length(s2);
-size = s1_length + s2_length + 1;
-new_str = malloc(sizeof(char) * size);
+s1_length++;
+new_str = malloc(sizeof(char) * (s1_length + s2_length));
 if (new_str == NULL)
 return (NULL);
 for (i = 0; i < s1_length; i++)
