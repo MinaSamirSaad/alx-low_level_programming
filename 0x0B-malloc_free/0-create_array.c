@@ -20,7 +20,7 @@ return (NULL);
 }
 else
 {
-array = malloc(sizeof(char) * (size + 1));
+array = malloc(sizeof(char) * size );
 for (i = 0; i < size; i++)
 {
 array[i] = c;
