@@ -20,15 +20,16 @@ return (NULL);
 }
 else
 {
-array = malloc(sizeof(char) * size );
+array = malloc(sizeof(char) * size);
+if (array == NULL)
+{
+return (NULL);
+}
 for (i = 0; i < size; i++)
 {
 array[i] = c;
 }
 }
-if (array == NULL)
-{
-return (NULL);
-}
+
 return (array);
 }
