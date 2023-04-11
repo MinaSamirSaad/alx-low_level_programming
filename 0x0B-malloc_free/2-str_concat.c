@@ -50,7 +50,6 @@ for (j = 0; j < s2_length; j++)
 new_str[i] = s2[j];
 i++;
 }
-i++;
 new_str[i] = '\0';
 return (new_str);
 }
