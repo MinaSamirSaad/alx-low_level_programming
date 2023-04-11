@@ -1,19 +1,20 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+
 /**
-*str_length- returns the lenght of a string
+* _strlen - returns the lenght of a string
 *@s: poiter of character
 *Return: the length of a string
 */
-unsigned int str_length(char *s)
+int _strlen(char *s)
 {
-int i = 0;
-while (s[i] != '\0')
-{
-i++;
-}
-return (i);
+	int len;
+
+	len = 0;
+	while (*(s + len) != '\0')
+		len++;
+	return (len);
 }
 
 /**
@@ -24,8 +25,9 @@ return (i);
 */
 char *str_concat(char *s1, char *s2)
 {
-char *new_str, *empty;
-unsigned int i, s1_length, s2_length, j;
+	int l1, l2;
+	int i, j;
+	char *empty, *concat;
 
 	/**lets make empty strings*/
 	empty = "";
@@ -35,21 +37,32 @@ unsigned int i, s1_length, s2_length, j;
 		s1 = empty;
 	if (s2 == NULL)
 		s2 = empty;
-s1_length = str_length(s1);
-s2_length = str_length(s2);
-s1_length++;
-new_str = malloc(sizeof(char) * (s1_length + s2_length));
-if (new_str == NULL)
-return (NULL);
-for (i = 0; i < s1_length; i++)
-{
-new_str[i] = s1[i];
-}
-for (j = 0; j < s2_length; j++)
-{
-new_str[i] = s2[j];
-i++;
-}
-new_str[i] = '\0';
-return (new_str);
+
+	/**Calculating the length of the strings*/
+	l1 = _strlen(s1);
+	l2 = _strlen(s2);
+
+	/**assign memory*/
+	/**increments l2 for the null character*/
+	l2++;
+	concat = malloc((l1 + l2) * sizeof(*concat));
+
+	/**verify if memory fails*/
+	if (concat == NULL)
+		return (NULL);
+
+	/**concatenate the strings*/
+	for (i = 0; i < l1; i++)
+	{
+		concat[i] = s1[i];
+	}
+
+	for (j = 0; j < l2; j++)
+	{
+		concat[i] = s2[j];
+		i++;
+	}
+	i++;
+	concat[i] = '\0';
+	return (concat);
 }
