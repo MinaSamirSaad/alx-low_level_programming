@@ -7,6 +7,7 @@
 *@height: height of the grid
 *Return: 0 (success)
 */
+
 int **alloc_grid(int width, int height)
 {
 	int **grid;
