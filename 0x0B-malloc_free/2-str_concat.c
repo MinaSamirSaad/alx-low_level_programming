@@ -25,7 +25,7 @@ return (i);
 char *str_concat(char *s1, char *s2)
 {
 char *new_str, *empty;
-unsigned int size, i, s1_length, s2_length, j;
+unsigned int i, s1_length, s2_length, j;
 
 	/**lets make empty strings*/
 	empty = "";
