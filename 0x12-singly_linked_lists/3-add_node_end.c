@@ -1,10 +1,10 @@
 #include "lists.h"
 /**
-*  str_length - returns the lenght of a string
+*  _str_length - returns the lenght of a string
 *@m: poiter of character
 *Return: the length of a string
 */
-int str_length(const char *m)
+int _str_length(const char *m)
 {
 int count;
 count = 0;
@@ -16,17 +16,17 @@ count++;
 return (count);
 }
 /**
-**copy_str - copy a string with new memory
+**_copy_str - copy a string with new memory
 *@s: string received
 *Return: Null otherwise the duplicated string
 */
-char *copy_str(const char *s)
+char *_copy_str(const char *s)
 {
 char *newStr;
 unsigned int len;
 unsigned int i;
 i = 0;
-len = str_length(s);
+len = _str_length(s);
 newStr = malloc(len *sizeof(char));
 if (newStr == NULL)
 {
@@ -50,7 +50,7 @@ list_t *add_node_end(list_t **head, const char *str)
 {
 list_t *newNode, *current = *head;
 int len;
-len = str_length(str);
+len = _str_length(str);
 newNode = malloc(sizeof(list_t));
 if (newNode == NULL)
 {
@@ -67,7 +67,7 @@ current = current->next;
 
 current->next = newNode;
 newNode->len = len;
-newNode->str = copy_str(str);
+newNode->str = _copy_str(str);
 newNode->next = NULL;
 return (newNode);
 }
