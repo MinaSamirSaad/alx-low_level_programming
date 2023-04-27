@@ -1,75 +1,96 @@
 #include "lists.h"
+
 /**
-*  _str_length - returns the lenght of a string
-*@m: poiter of character
+* _strlen - returns the lenght of a string
+*@s: poiter of character
 *Return: the length of a string
 */
-int _str_length(const char *m)
+int _strlen(const char *s)
 {
-int count;
-count = 0;
+	int len;
 
-while (*(m + count) != '\0')
-{
-count++;
+	len = 0;
+	while (*(s + len) != '\0')
+		len++;
+	return (len);
 }
-return (count);
-}
+
 /**
-**_copy_str - copy a string with new memory
-*@s: string received
+* *_strdup - duplicaate a strning with new memory
+*@str: string received
 *Return: Null otherwise the duplicated string
 */
-char *_copy_str(const char *s)
+char *_strdup(const char *str)
 {
-char *newStr;
-unsigned int len;
-unsigned int i;
-i = 0;
-len = _str_length(s);
-newStr = malloc(len *sizeof(char));
-if (newStr == NULL)
-{
-return (NULL);
-}
-for (i = 0; i < len; i++)
-{
-newStr[i] = s[i];
-}
-return (newStr);
+	char *cp;
+	unsigned int i, j;
+
+	if (str == NULL)
+		return (NULL);
+	i = _strlen(str);
+	cp = malloc(i * sizeof(char));
+
+	if (cp == NULL)
+	{
+		return (NULL);
+	}
+
+	for (j = 0; j < i; j++)
+	{
+		cp[j] = str[j];
+	}
+
+	return (cp);
 }
 
 /**
- * *add_node_end - function that adds a new node at the end of a list_t list
- * @head: head of the list
- * @str: string to add
- * Return: the address of the new element or null if it fails
- */
+* new_node - create a new node
+*@s: string to put in the node
+*Return: ponter to new node
+*/
 
+list_t *new_node(const char *s)
+{
+	list_t *add;
+
+	add = malloc(sizeof(list_t));
+
+	if (add == NULL)
+		return (NULL);
+
+	add->str = _strdup(s);
+	add->len = _strlen(s);
+	add->next = NULL;
+	return (add);
+}
+
+/**
+* add_node_end - function that adds a new node at the end of a list_t list
+*@head: head of the list
+*@str: string to add
+*Return: the addres of the new element or null if it fails
+*/
 list_t *add_node_end(list_t **head, const char *str)
 {
-list_t *newNode, *current;
-int length;
+	list_t *end, *temp = *head;
 
-current = *head;
-length = _str_length(str);
-newNode = malloc(sizeof(list_t));
-if (newNode == NULL)
-{
-free(newNode);
-return (NULL);
-}
-if (*head == NULL)
-{
-*head = newNode;
-return (*head);
-}
-while (current->next != NULL)
-current = current->next;
+	if (head == NULL)
+		return (NULL);
 
-current->next = newNode;
-newNode->len = length;
-newNode->str = _copy_str(str);
-newNode->next = NULL;
-return (newNode);
+	end = new_node(str);
+	if (end == NULL)
+		return (NULL);
+
+	if (*head == NULL)
+	{
+		*head = end;
+		return (*head);
+	}
+
+	while (temp->next != NULL)
+		temp = temp->next;
+
+	temp->next = end;
+
+	return (*head);
 }
