@@ -49,9 +49,10 @@ return (newStr);
 list_t *add_node_end(list_t **head, const char *str)
 {
 list_t *newNode, *current;
+int length;
+
 current = *head;
-int len;
-len = _str_length(str);
+length = _str_length(str);
 newNode = malloc(sizeof(list_t));
 if (newNode == NULL)
 {
@@ -67,7 +68,7 @@ while (current->next != NULL)
 current = current->next;
 
 current->next = newNode;
-newNode->len = len;
+newNode->len = length;
 newNode->str = _copy_str(str);
 newNode->next = NULL;
 return (newNode);
