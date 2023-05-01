@@ -3,9 +3,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * struct list_t - singly linked list
- * @str: string - (malloc'ed string)
- * @len: length of the string
+ * struct listint_t - singly linked list
+ * @n: value of number
  * @next: points to the next node
  *
  * Description: singly linked list node structure
