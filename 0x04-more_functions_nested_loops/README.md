@@ -1,6 +1,4 @@
-# alx-low_level_programming
-
-## 0x04. C - More functions, more nested loops
+# 0x04. C - More functions, more nested loops
 
 ### Description
 This project is about programming in C with loops
@@ -21,3 +19,9 @@ This project is about programming in C with loops
 | [8-print_square.c](https://github.com/MinaSamirSaad/alx-low_level_programming/tree/master/0x04-more_functions_nested_loops/8-print_square.c) | Function that prints a square, followed by a new line.  |
 | [9-fizz_buzz.c](https://github.com/MinaSamirSaad/alx-low_level_programming/tree/master/0x04-more_functions_nested_loops/9-fizz_buzz.c) | The “Fizz-Buzz test” is an interview question designed to help filter out the 99.5% of programming job candidates who can’t seem to program their way out of a wet paper bag.  |
 | [10-print_triangle.c](https://github.com/MinaSamirSaad/alx-low_level_programming/tree/master/0x04-more_functions_nested_loops/10-print_triangle.c) | Function that prints a triangle, followed by a new line. |
+
+## Advanced Tasks
+| Files | Description |
+| ----- | ----------- |
+| [100-prime_factor.c](https://github.com/MinaSamirSaad/alx-low_level_programming/tree/master/0x04-more_functions_nested_loops/100-prime_factor.c) | Print n times a table |
+| [101-print_number.c](https://github.com/MinaSamirSaad/alx-low_level_programming/tree/master/0x04-more_functions_nested_loops/101-print_number.c) | Sum of the multiplies of 3 or 5 below 1024 |
