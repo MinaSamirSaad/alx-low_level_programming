@@ -7,20 +7,20 @@
 */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
- int fptr = -1;
-char *ch;
 ssize_t read_count, print_count;
+int fptr = -1;
+char *ch;
 if (filename == NULL)
 return (0);
 fptr = open(filename, O_RDONLY);
 if (fptr == -1)
 return (0);
 ch = malloc(letters);
-if (ch == NULL)
+if (!ch)
 return (0);
 read_count = read(fptr, ch, letters);
 print_count = write(STDOUT_FILENO, ch, read_count);
-fclose(fptr);
+close(fptr);
 if (print_count != read_count)
 return (0);
 return (print_count);
