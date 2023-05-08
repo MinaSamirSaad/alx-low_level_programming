@@ -1,4 +1,10 @@
-#include "main.h"
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
  * print_error_read - prints the error when read
  *@file: name of the file
