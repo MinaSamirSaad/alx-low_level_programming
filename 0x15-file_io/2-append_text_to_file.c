@@ -8,7 +8,7 @@
 */
 int append_text_to_file(const char *filename, char *text_content)
 {
-int file, retval, count;
+int file, retval = 0, count;
 
 if (filename == NULL)
 return (-1);
@@ -24,7 +24,7 @@ count++;
 
 retval = write(file, text_content, count);
 }
-
+close(file);
 if (retval == -1)
 return (-1);
 
