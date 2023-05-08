@@ -7,22 +7,26 @@
 */
 int create_file(const char *filename, char *text_content)
 {
-int file = -1, count = 0, close_flag,  written;
-if (filename == NULL)
-return (-1);
-file = open(filename, O_RDWR | O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR);
-if (file == -1)
-return (-1);
-if (text_content != NULL)
-{
-while (text_content[count] != '\0')
-{
-count++;
-}
-written = write(file, text_content, count);
-}
-close_flag = close(file);
-if (written == -1 || written != count || close_flag == -1)
-return (0);
-return (1);
+	int file, retval, count = 0;
+
+	if (filename == NULL)
+		return (-1);
+
+	file = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	if (file == -1)
+		return (-1);
+
+	if (text_content != NULL)
+	{
+		while (text_content[count] != '\0')
+		{
+			count++;
+		}
+		retval = write(file, text_content, count);
+	}
+    close(file);
+	if (retval == -1 || retval != count)
+		return (-1);
+
+	return (1);
 }
