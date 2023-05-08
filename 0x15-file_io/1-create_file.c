@@ -11,7 +11,7 @@ int file = -1, length = 0, close_flag;
 ssize_t written = 0;
 if (filename == NULL)
 return (-1);
-file = open(filename, O_RDWR | O_CREAT | O_APPEND, S_IRUSR | S_IWUSR);
+file = open(filename, O_RDWR | O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR);
 if (file == -1)
 return (-1);
 if (text_content != NULL)
