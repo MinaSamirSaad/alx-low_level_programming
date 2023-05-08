@@ -55,8 +55,8 @@ void print_error_write(char *file)
 
 int main(int argc, char **argv)
 {
-	int file_from = 0, file_to = 0, retvalue = 0;
-	int readvalue = 1024, closevalue = 0;
+	int file_from = 0, file_to = 0, ret_value = 0;
+	int read_value = 0, close_value = 0;
 	char buff[1024];
 
 	if (argc != 3)
@@ -71,20 +71,19 @@ int main(int argc, char **argv)
 		close(file_from);
 		print_error_write(argv[2]);
 	}
-	while (readvalue == 1024)
-	{
-		readvalue = read(file_from, buff, 1024);
-		if (readvalue < 0)
+
+		read_value = read(file_from, buff, 1024);
+		if (read_value < 0)
 			print_error_read(argv[1]);
-		retvalue = write(file_to, buff, readvalue);
-		if (retvalue < readvalue)
+		ret_value = write(file_to, buff, read_value);
+		if (ret_value < read_value)
 			print_error_write(argv[2]);
-	}
-	closevalue = close(file_from);
-	if (closevalue < 0)
+
+	close_value = close(file_from);
+	if (close_value < 0)
 		print_error_close(argv[1]);
-	closevalue = close(file_to);
-	if (closevalue < 0)
+	close_value = close(file_to);
+	if (close_value < 0)
 		print_error_close(argv[2]);
 	return (0);
 }
