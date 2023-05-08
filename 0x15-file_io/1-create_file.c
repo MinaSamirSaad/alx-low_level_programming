@@ -16,7 +16,7 @@ if (file == -1)
 return (-1);
 if (text_content != NULL)
 {
-while (*text_content)
+while (*text_content != '\0')
 {
 text_content++;
 length++;
