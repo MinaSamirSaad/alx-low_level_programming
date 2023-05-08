@@ -7,7 +7,7 @@
 */
 int create_file(const char *filename, char *text_content)
 {
-int file, retval = 0, count = 0, close_flag, flags, modes;
+int file, retval = 0, count = 0, flags, modes;
 
 if (filename == NULL)
 return (-1);
@@ -25,8 +25,8 @@ count++;
 }
 retval = write(file, text_content, count);
 }
-close_flag = close(file);
-if (retval == -1 || retval != count || close_flag == -1)
+close(file);
+if (retval == -1 || retval != count)
 return (-1);
 
 return (1);
