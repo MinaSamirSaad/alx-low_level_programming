@@ -5,52 +5,54 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 /**
- * print_error_read - prints the error when read
- *@file: name of the file
+* print_error_close - prints the error when close
+*@file: name of the file
+*Return: Nothing
+*/
+
+void print_error_close(char *file)
+{
+	dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", file);
+	exit(100);
+}
+
+/**
+* print_error_read - prints the error when read
+*@file: name of the file
 *Return: Nothing
 */
 
 void print_error_read(char *file)
 {
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
-exit(98);
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
+	exit(98);
 }
 
 /**
- * print_error_read - prints the error when read
- *@file: name of the file
-*Return: Nothing
-*/
-
-void print_error_read(char *file)
-{
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
-exit(98);
-}
-
-/**
- * print_error_write - prints the error when write
- *@file: name of the file
+* print_error_write - prints the error when write
+*@file: name of the file
 *Return: Nothing
 */
 
 void print_error_write(char *file)
 {
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
-exit(99);
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
+	exit(99);
 }
 
 /**
- * main - Program that copies the content of a file to another file
- *@argc: argument counter
- *@argv: argument vector (names of the files)
- *Return: the following errors:
- * 97 for syntax error
- * 98 for read error
- * 99 for write error
- * 100 for close error
- */
+* main - Program that copies the content of a file to another file
+*@argc: argument counter
+*@argv: argument vector (names of the files)
+*Return: the following errors:
+* 97 for syntax error
+* 98 for read error
+* 99 for write error
+* 100 for close error
+*/
+
 int main(int argc, char **argv)
 {
 	int file_from = 0, file_to = 0, retvalue = 0;
