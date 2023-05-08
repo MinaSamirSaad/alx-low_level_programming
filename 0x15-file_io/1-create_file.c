@@ -7,7 +7,7 @@
 */
 int create_file(const char *filename, char *text_content)
 {
-int file = -1, length = 0;
+int file = -1, length = 0, close_flag;
 ssize_t written = 0;
 if (filename == NULL)
 return (-1);
@@ -23,8 +23,8 @@ length++;
 }
 written = write(file, text_content, length);
 }
-if (written == -1 || written != length)
+close_flag = close(file);
+if (written == -1 || written != length || close_flag == -1)
 return (0);
-close(file);
 return (written);
 }
