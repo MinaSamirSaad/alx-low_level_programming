@@ -25,7 +25,7 @@ count++;
 retval = write(file, text_content, count);
 }
 close(file);
-if (retval == -1 || retval != count )
+if (retval == -1 || retval != count)
 return (-1);
 
 return (1);
