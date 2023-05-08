@@ -7,12 +7,13 @@
 */
 int create_file(const char *filename, char *text_content)
 {
-int file, retval, count = 0, close_flag;
+int file, retval = 0, count = 0, close_flag, flags, modes;
 
 if (filename == NULL)
 return (-1);
-
-file = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+flags = O_RDWR | O_CREAT | O_TRUNC;
+modes = S_IRUSR | S_IWUSR;
+file = open(filename, flags, modes);
 if (file == -1)
 return (-1);
 
