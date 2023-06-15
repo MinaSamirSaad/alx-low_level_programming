@@ -8,41 +8,44 @@
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-dlistint_t *node, *temp;
-unsigned int count = 0;
+dlistint_t *temp, *temp2, *new;
+unsigned int counter = 0;
 
 if (h == NULL && idx != 0)
 return (NULL);
-temp = *h;
-node = malloc(sizeof(dlistint_t));
-if (node == NULL)
-{
+new = malloc(sizeof(dlistint_t));
+if (new == NULL)
 return (NULL);
+new->n = n, new->prev = NULL;
+if (*h == NULL)
+{
 if (idx > 0)
 {
-free(node);
+free(new);
 return (NULL);
 }
+new->next = NULL, *h = new;
+return (new);
 }
-node->n = n;
-node->prev = NULL;
 if (idx == 0)
 {
-node->next = temp, temp->prev = node, temp = node;
-return (node);
+new->next = *h, (*h)->prev = new, *h = new;
+return (new);
 }
-while (temp && count <= idx)
+temp = *h;
+while (temp != NULL && counter <= idx)
 {
-if (count == idx)
+temp2 = temp->next;
+if (counter == idx - 1)
 {
-node->prev = temp->prev;
-node->next = temp;
-temp->prev->next = node;
-temp->prev = node;
-return (node);
+temp->next = new, new->prev = temp;
+if (temp2 == NULL)
+new->next = NULL;
+else
+new->next = temp2, temp2->prev = new;
+return (new);
 }
-temp = temp->next;
-count++;
+temp = temp->next, counter++;
 }
 return (NULL);
 }
