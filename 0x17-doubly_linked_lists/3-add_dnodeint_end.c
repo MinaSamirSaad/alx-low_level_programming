@@ -1,27 +1,31 @@
 #include "lists.h"
 /**
- * add_dnodeint - add new node to first of list
+ * add_dnodeint_end - add new node to end of list
  * @head: pointer to double list structure
  * @n: data to be added
  * Return: new node
  */
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
+dlistint_t *h = *head;
 dlistint_t *node = malloc(sizeof(dlistint_t));
 if (node == NULL)
 return (NULL);
 node->n = n;
-node->prev = NULL;
+node->next = NULL;
 if (*head == NULL)
 {
-node->next = NULL;
+node->prev = NULL;
 *head = node;
 }
 else
 {
-node->next = *head;
-(*head)->prev = node;
-*head = node;
+while (h->next != NULL)
+{
+h = h->next;
+}
+node->prev = h;
+h->next = node;
 }
 return (node);
 }
