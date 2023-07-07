@@ -4,14 +4,14 @@
  * @ht: hash table to look into
  * @key: key to search
  * Return: the value associated with the element, otherwise NULL
-*/
+ */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 unsigned long int index;
 hash_node_t *head = NULL;
-if (!key)
+if (!ht || !key)
 return (NULL);
-if(ht->size <= 0)
+if (strlen(key) == 0)
 return (NULL);
 index = key_index((const unsigned char *)key, ht->size);
 head = ht->array[index];
