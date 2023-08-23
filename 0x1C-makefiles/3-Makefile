@@ -1,0 +1,36 @@
+CC = gcc
+
+SRC = main.c school.c 
+
+# OBJ = main.o school.o
+# this can also be achieved by technique for replacement of .c with .o of SRC
+# this technique is presented by makefiles
+OBJ = $(SRC:.c=.o)
+
+NAME = school
+RM = rm -f
+
+# ----------- variables end -------------------
+.PHONY: all
+
+all: $(NAME)
+
+# $^ means all OBJ
+# $@ means NAME
+$(NAME): $(OBJ)
+	$(CC) $^ -o $@
+
+# this mean any file .o depend on file .c and if that .c has more recent modify than .o then action excuted
+%.o: %.c
+	$(CC) -c -o $@ $<
+
+# to make command ignore errors with prefix it with - like -rm but rm -f also ignore errors
+clean :
+	$(RM) *~ $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re : oclean all
