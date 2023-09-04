@@ -30,6 +30,8 @@ This project is about programming in C
 | [0x15-file_io](https://github.com/MinaSamirSaad/alx-low_level_programming/tree/master/0x15-file_io) | Learning about file descriptors and how open, close, read and write a file |
 | [0x17-doubly_linked_lists](https://github.com/MinaSamirSaad/alx-low_level_programming/tree/master/0x17-doubly_linked_lists) | Learning about doubly linked list |
 | [0x18-dynamic_libraries](https://github.com/MinaSamirSaad/alx-low_level_programming/tree/master/0x18-dynamic_libraries) | Learning about Dynamic libraries, create and modify them |
+| [0x1A-hash_tables](0x1A-hash_tables) | Learning about Hash tables |
+| [0x1C-makefiles](0x1C-makefiles) | Learning how to make files with Makefile and the rules |
 
 ## Author
 
