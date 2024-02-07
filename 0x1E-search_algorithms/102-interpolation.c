@@ -17,8 +17,6 @@ if (array == NULL)
 return (-1);
 while (low <= high)
 {
-printf("Value checked array[%lu] = [%i]\n", low, array[low]);
-printf("Value checked array[%lu] = [%i]\n", high, array[high]);
 pos = low + (((double)(high - low) / (array[high] - array[low]))
 * (value - array[low]));
 if (pos >= size)
